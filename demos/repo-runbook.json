@@ -1,25 +1,36 @@
 {
   "skill": "repo-runbook",
-  "out": "repo-runbook/demo.gif",
-  "caption": "repo-runbook \u2014 stop re-grepping for the test command",
+  "prompt": "you@laptop:~/checkout-api",
   "steps": [
     {
-      "cmd": "git clone encode/httpx && runbook.py scan",
-      "phase": "scan",
+      "cmd": "ls",
+      "shell": true,
+      "phase": "the problem",
+      "note": "an unfamiliar repo: how do you install, test, migrate?",
+      "out": [
+        "README.md  apps/  packages/  pyproject.toml  uv.lock"
+      ]
+    },
+    {
+      "cmd": "runbook.py scan .",
+      "phase": "one pass",
+      "note": "reads manifests only \u2014 no source crawl, no network, ~90 ms",
       "out": [
         "<!-- runbook:start -->",
         "### Runbook: httpxdemo",
         "",
         "- **Install:** `python3 -m pip install -r requirements.txt`",
         "- **Test:** `python3 -m pytest -q`",
-        "- **Lint:** `ruff check .`"
+        "- **Lint:** `ruff check .`",
+        "- **Typecheck:** `mypy .`"
       ]
     },
     {
-      "cmd": "runbook.py write && runbook.py check",
-      "phase": "payoff",
+      "cmd": "runbook.py write .",
+      "phase": "written",
+      "note": "saved into AGENTS.md, so the next session starts here",
       "out": [
-        "wrote /tmp/httpxdemo/AGENTS.md (10 lines)",
+        "updated /tmp/httpxdemo/AGENTS.md (10 lines)",
         "runbook current"
       ]
     }

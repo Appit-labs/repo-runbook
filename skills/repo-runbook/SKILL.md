@@ -6,6 +6,7 @@ allowed-tools:
   - Read
   - Write
   - Edit
+license: MIT
 ---
 
 # Repo runbook
@@ -15,6 +16,8 @@ tool calls grepping for the test command. It reads the runbook instead.
 
 Two halves: `scripts/runbook.py` detects the mechanical facts, you verify the few
 that matter and write the one-line context a scanner cannot know.
+
+**Not for:** architecture docs, API reference or onboarding prose — this block is only install/run/test/lint/migrate/ports/env, kept short because every future session pays for it.
 
 ## Portability
 
@@ -76,6 +79,12 @@ competing file: if either exists, use it.
 Keep the block under ~40 lines. It is loaded into every future session, so every
 line costs tokens in all of them. No tables of every script — the commands you
 actually run, nothing else.
+
+The block ships two placeholders: **Not to run** and **Troubleshooting**. Fill them
+only where you have evidence — a destructive command you actually saw documented, a
+failure you actually hit. For troubleshooting, write the symptom as the user sees it,
+then the cause, then the fix. A guess in this block is worse than a blank, because the
+next session will trust it.
 
 ## 4. Check for drift
 

@@ -178,6 +178,7 @@ def render(repo: Path, facts: dict) -> str:
     if facts.get("ci"):
         lines.append(f"- **CI:** {', '.join(facts['ci'][:4])}")
     lines.append("- **Not to run:** _(fill in: destructive commands, suites that need the prod DB)_")
+    lines.append("- **Troubleshooting:** _(fill in: symptom -> cause -> fix, only for failures actually hit here)_")
     lines.append(END)
     return "\n".join(lines)
 

@@ -1,6 +1,6 @@
 {
   "name": "repo-runbook",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Generate and maintain a short verified runbook (install/run/test/lint/migrate/ports) inside AGENTS.md so later sessions stop re-discovering it.",
   "license": "MIT",
   "keywords": [
